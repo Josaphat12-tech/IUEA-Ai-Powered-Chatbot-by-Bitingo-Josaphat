@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{% block title %}IUEA AI-Powered ChatBot{% endblock %}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <a class="navbar-brand" href="/international-university-of-east-africa" style="color:red"><b>IUEA AI-Powered ChatBot</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="https://iuea.ac.ug/"><b>Home site</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://bitingo-the-deep-neural-nets.hashnode.dev/">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/Josaphat12-tech">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  {% block content %}{% endblock %}
+
+  <footer class="text-center mt-4">
+    <!-- <p class="mb-0">Powered by IUEA Ai-Lab || Made with ❤️ by Bitingo Josaphat JB.</p> -->
+    <p class="mb-0" style="color:white">Powered by IUEA Ai-Lab 2023 || Made with ❤️ by Bitingo Josaphat JB.</p>
+
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

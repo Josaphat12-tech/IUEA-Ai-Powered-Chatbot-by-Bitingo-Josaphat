@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+  body {
+    background-color: black;
+    margin: 0;
+  }
+  .center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    border-radius: 45px;
+    margin: 0;
+  }
+</style>
+
+<div class="center-container" style="border-radius:30px">
+  <div class="container text-white">
+    <h1 class="text-center my-5" style="color:red"><b>Welcome to IUEA AI-Powered ChatBot</b></h1>
+
+    <div class="row">
+      <div class="col-md-6" style="color:grey">
+        <p>As a student or staff member of the International University of East Africa, you can use this chatbot to quickly find information related to your courses, programs, and services offered by the university.</p>
+        <p>Scientists and investors can also use this chatbot to ask questions related to ongoing research projects or funding opportunities.</p>
+        <p>The chatbot is powered by OpenAI's GPT-3 language model, which allows it to generate natural-sounding responses to your questions.</p>
+      </div>
+      <div class="col-md-6">
+        <div class="card" style="background-color:#cccccc">
+          <div class="card-body">
+            <form method="POST" action="/">
+              <div class="form-group">
+                <label for="prompt"><span style="color:black"><b>Enter your question:</b></span></label>
+                <input type="text" class="form-control" id="prompt" name="prompt" placeholder="What do I need to know about registration?">
+              </div>
+              <button type="submit" class="btn btn-primary" style = "border-radius:45px">Ask now</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% if prompt %}
+    <div class="card mt-5" style="background-color:grey">
+      <div class="card-body">
+        <p class="card-text" style="color:black"><span style="color:blue"><b>You: </b></span>{{ prompt }}</p>
+      </div>
+
+    </div>
+    {% endif %}
+    <br>
+    {% if response %}
+    <div class="card mt-6" style = "background-color:#cccccc">
+      <div class="card-body">
+        <p class="card-text" style="color:black"><span style="color:red"><b>IUEA BOT: </b></span>{{ response }}</p>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

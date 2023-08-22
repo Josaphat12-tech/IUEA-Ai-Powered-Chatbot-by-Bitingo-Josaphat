@@ -1,0 +1,11 @@
+# ignoring the App logs
+__pycache__/
+
+# Ignoring The config File
+config.py
+
+# Ignoring the SSH Key Generation
+Share-The-App.py
+
+# Ignoring The .git file
+.git

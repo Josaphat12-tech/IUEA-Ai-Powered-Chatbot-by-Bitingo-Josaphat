@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Search App</title>
+    <style>
+        #search-bar {
+            margin: 10px;
+            width: 300px;
+        }
+        .all-photos {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .single-photo {
+            border: 1px solid black;
+            margin: 10px;
+            width: min-content;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        What are you looking for?
+    </div>
+    <form id="search-form">
+        <input id="search-bar" placeholder="Search" type="text">
+    </form>
+    <div class="all-photos"></div>
+    <script>
+        var searchForm = document.querySelector('#search-form');
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var res = JSON.parse(xhttp.responseText);
+                    var photos = res.photos.map(function(photo) {
+                        return photo;
+                    })
+                    photosContainer = document.querySelector('.all-photos');
+                    console.log(res);
+                    photosContainer.innerHTML = '';
+                    photos.forEach(photo => {
+                        photoContainer = document.createElement('div');
+                        photoContainer.classList.add('single-photo');
+                        photoContainer.innerHTML = `
+                            <img src="${photo.src.medium}">
+                            <p><b>Photographer:</b> ${photo.photographer}</p>
+                            <p><b>Description:</b> ${photo.alt}</p>
+                        `;
+                        photosContainer.appendChild(photoContainer);
+                    });
+                }
+            };
+            var textValue = document.querySelector('#search-bar').value;
+            xhttp.open("GET", `https://api.pexels.com/v1/search?query=${textValue}&per_page=10`, true);
+            xhttp.setRequestHeader("Authorization", "563492ad6f91700001000001ccb92c78c191436ba0cd06ff01f9d2d5");
+            xhttp.send();
+        });
+    </script>
+</body>
+</html>
