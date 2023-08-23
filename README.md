@@ -47,4 +47,5 @@ Remember to replace placeholders like `Josaphat12-tech` and `bitingojosaphat@gma
 Once you have the README content ready, you can create a new file named `README.md` in your GitHub repository and paste the content into it. This will create a nicely formatted README for your project.
 
 @Josaphat12-tech
+@Focze-Eszter
 
